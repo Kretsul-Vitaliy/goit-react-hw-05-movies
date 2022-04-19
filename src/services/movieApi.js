@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const getDataMovies = async (endPoint, page = 1) => {
+export const getDataMovies = async (endPoint, page = 1, lang = 'uk', query) => {
     try {
         const response = await axios({
             method: 'get',
@@ -14,7 +14,8 @@ export const getDataMovies = async (endPoint, page = 1) => {
             params: {
                 api_key: process.env.REACT_APP_MOVIE_API_KEY,
                 page: `${page}`,
-                language: 'uk',
+                language: `${lang}`,
+                query: `${query}`,
             },
         });
         const data = await response.data;

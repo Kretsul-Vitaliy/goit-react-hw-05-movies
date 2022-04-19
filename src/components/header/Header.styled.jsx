@@ -15,9 +15,15 @@ export const HeaderMenuItem = styled.li`
 `;
 export const NavLinkStyled = styled(NavLink)`
     font-size: 24px;
+    color: black;
 
     &.active {
         color: red;
         font-size: 32px;
     }
+`;
+export const HeaderSection = styled.header`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;

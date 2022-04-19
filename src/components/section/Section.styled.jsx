@@ -6,6 +6,6 @@ export const Title = styled.h2`
 `;
 
 export const SectionWrap = styled.section`
-    padding: 10px;
-    /* text-align: center; */
+    justify-content: center;
+    margin: 20px 20px;
 `;
