@@ -16,7 +16,7 @@ const Reviews = lazy(() =>
 );
 export default function AdditionalInformation({ lang, movieDetailId }) {
     const location = useLocation();
-    const { url, path, isExact } = useRouteMatch();
+    const { url, path } = useRouteMatch();
 
     const movieDetailPageListLang = [
         {
