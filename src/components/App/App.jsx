@@ -1,14 +1,10 @@
 import { Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from '../../theme/GlobalStyle.styled';
 import { useState, lazy, Suspense } from 'react';
-import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Header from '../Header';
 import Loader from '../Loader';
-// import HomePage from '../../pages/HomePage';
-// import MovieDetailPage from '../../pages/MovieDetailPage';
-// import MoviesPage from '../../pages/MoviesPage';
-// import NotFoundPage from '../../pages/NotFoundPage';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() =>
     import('../../pages/HomePage' /*webpackChunkName: "Home__page"*/)
