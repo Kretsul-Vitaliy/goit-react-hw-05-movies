@@ -1,5 +1,11 @@
 import React, { lazy, Suspense } from 'react';
-import { Route, Switch, useRouteMatch, useLocation } from 'react-router-dom';
+import {
+    Route,
+    Switch,
+    useRouteMatch,
+    useLocation,
+    Redirect,
+} from 'react-router-dom';
 import { v4 } from 'uuid';
 import Section from '../Section';
 import Loader from '../Loader';
@@ -10,7 +16,7 @@ const Reviews = lazy(() =>
 );
 export default function AdditionalInformation({ lang, movieDetailId }) {
     const location = useLocation();
-    const { url, path } = useRouteMatch();
+    const { url, path, isExact } = useRouteMatch();
 
     const movieDetailPageListLang = [
         {
@@ -62,18 +68,24 @@ export default function AdditionalInformation({ lang, movieDetailId }) {
                             pathname: `${url}/reviews`,
                             state: { detail: location.state?.detail },
                         }}
+                        isActive={(match, location) => {
+                            if (match?.isExact || location.pathname === url) {
+                                return true;
+                            }
+                        }}
                     >
                         {movieDetailPageListFilter[0].reviews}
                     </NavLinkInfoStyled>
                 </div>
                 <Suspense fallback={<Loader />}>
                     <Switch>
-                        <Route path={`${path}/cast`}>
+                        <Route exact path={`${path}/cast`}>
                             <Cast lang={lang} />
                         </Route>
-                        <Route path={`${path}/reviews`}>
+                        <Route exact path={[path, `${path}/reviews`]}>
                             <Reviews lang={lang} />
                         </Route>
+                        <Route render={() => <Redirect to={url} />} />
                     </Switch>
                 </Suspense>
             </Section>
