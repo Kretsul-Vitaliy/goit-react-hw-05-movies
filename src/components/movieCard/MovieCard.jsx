@@ -6,6 +6,7 @@ import {
     MovieCardImgBox,
     MovieCardInfo,
 } from './MovieCard.styled';
+import defaultImage from '../../images/defaultImage.jpg';
 function movieCard({ movieDetailId, genreList, lang }) {
     const movieCardListLang = [
         {
@@ -39,7 +40,11 @@ function movieCard({ movieDetailId, genreList, lang }) {
             <Section title={movieDetailId.title}>
                 <MovieCardImgBox>
                     <MovieCardImg
-                        src={`https://image.tmdb.org/t/p/w500/${movieDetailId.poster_path}`}
+                        src={
+                            movieDetailId.poster_path
+                                ? `https://image.tmdb.org/t/p/w500/${movieDetailId.poster_path}`
+                                : defaultImage
+                        }
                         alt=""
                     />
                     <MovieCardInfo>

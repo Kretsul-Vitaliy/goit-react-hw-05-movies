@@ -3,12 +3,14 @@ import { getDataMovies } from '../services/movieApi';
 import { toast } from 'react-toastify';
 import Searchbar from '../searchbar';
 import MoviesList from '../components/moviesList/MoviesList';
+import { useHistory } from 'react-router-dom';
 
 function MoviesPage({ lang }) {
+    const history = useHistory();
     const [searchQuery, setSearchQuery] = useState(
         () => JSON.parse(localStorage.getItem('searchQuery')) || ''
     );
-    const [searchMovieDetailId, setSearchMovieDetailId] = useState(null);
+    const [searchMovieDetailId, setSearchMovieDetailId] = useState([]);
 
     const handleSearchBarSubmit = async event => {
         await event.preventDefault();
@@ -20,13 +22,19 @@ function MoviesPage({ lang }) {
 
     useEffect(() => {
         searchQuery &&
-            getDataMovies('search/movie', 1, lang, searchQuery).then(
-                movieDetails => setSearchMovieDetailId(movieDetails.results)
-            );
+            getDataMovies('search/movie', 1, lang, searchQuery)
+                .then(movieDetails =>
+                    setSearchMovieDetailId(movieDetails.results)
+                )
+                .catch(error => {
+                    toast.error('Фильм не найден');
+                    history.replace('/movies');
+                });
+
         if (searchQuery) {
             localStorage.setItem('searchQuery', JSON.stringify(searchQuery));
         }
-    }, [lang, searchQuery]);
+    }, [lang, searchQuery, history]);
 
     return (
         <>

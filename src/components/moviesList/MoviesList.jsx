@@ -13,7 +13,7 @@ import {
     MoviesListItemStyled,
     MoviesListStyled,
 } from './MovieList.styled';
-
+import defaultImage from '../../images/defaultImage.jpg';
 function MoviesList({ trendingMovies, location, lang }) {
     const history = useHistory();
     // console.log('history', history);
@@ -26,8 +26,12 @@ function MoviesList({ trendingMovies, location, lang }) {
                 }}
             >
                 <img
-                    src={`https://image.tmdb.org/t/p/w500/${trendingMovie.poster_path}`}
-                    alt=""
+                    src={
+                        trendingMovie.poster_path
+                            ? `https://image.tmdb.org/t/p/w500/${trendingMovie.poster_path}`
+                            : defaultImage
+                    }
+                    alt={trendingMovie.title}
                 />
 
                 <MovieListInfoBox>
