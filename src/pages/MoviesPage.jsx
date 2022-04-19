@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { getDataMovies } from '../services/movieApi';
 import { toast } from 'react-toastify';
-import Searchbar from '../searchbar';
-import MoviesList from '../components/moviesList/MoviesList';
+import Searchbar from '../components/Searchbar';
+import MoviesList from '../components/MoviesList/MoviesList';
 import { useHistory } from 'react-router-dom';
 
 function MoviesPage({ lang }) {

@@ -5,9 +5,9 @@ import { Switch } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { v4 } from 'uuid';
-import Cast from '../cast/Cast';
-import Reviews from '../reviews/Reviews';
-import Section from '../section';
+import Cast from '../Cast/Cast';
+import Reviews from '../Reviews/Reviews';
+import Section from '../Section';
 import { InfoText, NavLinkInfoStyled } from './AdditionalInformation.styled';
 
 export default function AdditionalInformation({ lang, movieDetailId }) {

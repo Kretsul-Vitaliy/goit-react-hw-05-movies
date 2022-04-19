@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import MoviesList from '../components/moviesList/MoviesList';
+import MoviesList from '../components/MoviesList/MoviesList';
 import { getDataMovies } from '../services/movieApi';
-import Section from '../components/section';
+import Section from '../components/Section';
 import { v4 } from 'uuid';
 
 function HomePage({ lang }) {

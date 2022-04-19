@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { v4 } from 'uuid';
 import { useParams } from 'react-router-dom';
 import { getDataMovies } from '../services/movieApi';
-import MovieCard from '../components/movieCard/MovieCard';
-import Button from '../components/button/Button';
+import MovieCard from '../components/MovieCard/MovieCard';
+import Button from '../components/Button/Button';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import AdditionalInformation from '../components/additionalInformation/AdditionalInformation';
+import AdditionalInformation from '../components/AdditionalInformation/AdditionalInformation';
 
 export default function MovieDetailPage({ lang }) {
     const history = useHistory();

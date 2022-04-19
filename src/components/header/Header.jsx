@@ -6,7 +6,7 @@ import {
     HeaderSection,
     NavLinkStyled,
 } from './Header.styled';
-import LanguagesFlags from '../languagesFlag/LanguagesFlags';
+import LanguagesFlags from '../LanguagesFlag/LanguagesFlags';
 
 export default function Header({ lang, handleOnChange }) {
     const menuList = [
